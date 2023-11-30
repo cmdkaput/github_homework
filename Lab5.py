@@ -1,14 +1,14 @@
-"""Створюємо класи Student та Group"""
+"""Creating Student and Group classes"""
 class Student:
-    """Клас,який містить інформацію про учнів, рахує середню оцінку учня"""
+    """The class, which contains information about students, calculates the student's average grade"""
     def __init__(self, student_id, name, grades=[]):
-        """Метод, що ініціалізує атрибути класу"""
+        """Method that initializes class attributes"""
         self.student_id = student_id
         self.name = name
         self.grades = grades
 
     def calculate_average_grade(self):
-        """Метод,що рахує середню оцінку учня"""
+        """Method that calculates student's average grade"""
         average_grade = 0
         if len(self.grades) > 0:
             average_grade = round(sum(self.grades) / len(self.grades), 2)
@@ -18,29 +18,29 @@ class Student:
         return f"Student {self.name}, ID: {self.student_id}, Average Grade: {self.calculate_average_grade()}"
     
 class Group:
-    """Клас, який містить ліст, в якому є учні, рахує середній бал групи"""
+    """Class which contains a list, that has students in and calculates the average grade of the group"""
     def __init__(self, students = []):
-        """Метод, що ініціалізує атрибут класу"""
+        """Method that initializes class attributes"""
         self.students = students
 
     def add_student(self, student):
-        """Метод, що додає учнів в ліст"""
+        """Method of adding student to list"""
         self.students.append(student)
 
     def remove_student(self, student):
-        """Метод, що видаляє учня з ліста"""
+        """Method of removing student to list"""
         if student in self.students:
             self.students.remove(student)
         else:
             print(f"{student.name} not found in the group.")
     
     def list_students(self):
-        """Метод, що виводить всіх учнів"""
+        """Method that prints all the students"""
         for student in self.students:
             print(student)
 
     def calculate_group_average_grade(self):
-        """Метод, що  рахує середню оцінку групи"""
+        """Method that calculates the average grade of the group"""
         total_grades = 0
         total_students = 0
         for student in self.students:
@@ -51,9 +51,9 @@ class Group:
         return round(total_grades / total_students, 2)
     
 if __name__ == "__main__":
-    student1 = Student(1, "Даніель", [90, 85, 95])
-    student2 = Student(2, "Максим", [92, 88, 76])
-    student3 = Student(3, "Іван", [85, 89, 45])
+    student1 = Student(1, "Daniel", [90, 85, 95])
+    student2 = Student(2, "Max", [92, 88, 76])
+    student3 = Student(3, "Ivan", [85, 89, 45])
 
     group = Group()
     group.add_student(student1)
