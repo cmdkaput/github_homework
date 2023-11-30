@@ -9,9 +9,10 @@ class Student:
 
     def calculate_average_grade(self):
         """Метод,що рахує середню оцінку учня"""
-        if len(self.grades) == 0:
-            return 0
-        return round(sum(self.grades) / len(self.grades), 2)
+        average_grade = 0
+        if len(self.grades) > 0:
+            average_grade = round(sum(self.grades) / len(self.grades), 2)
+        return average_grade
 
     def __str__(self):
         return f"Student {self.name}, ID: {self.student_id}, Average Grade: {self.calculate_average_grade()}"
